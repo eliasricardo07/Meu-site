@@ -22,8 +22,8 @@ body {
 }
 
 .logo {
-  max-width: 120px;
-  margin-bottom: 20px;
+  max-width: 160px;
+  margin-bottom: 50px;
 }
 
 .titulo {
@@ -50,7 +50,7 @@ body {
 }
 
 .botao:hover {
-  background-color: #d34811;
+  background-color: #ff733c;
   color: white;
 }
 
@@ -92,14 +92,39 @@ body {
 }
 
 /* Efeito de subir a página vindo de baixo no carregamento */
+@keyframes fadeInSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 body {
-  transform: translateY(100vh);
   opacity: 0;
-  transition: transform 1.25s ease-out, opacity 1.25s ease-out;
+  transform: translateY(20px);
 }
 
 body.loaded {
-  transform: translateY(0);
-  opacity: 1;
+  animation: fadeInSmooth 1.25s ease-out forwards;
 }
 
+.fade-left {
+  opacity: 0;
+  animation: fadeLeft 1.25s ease-out forwards;
+  animation-delay: 0s; /* sem delay */
+}
